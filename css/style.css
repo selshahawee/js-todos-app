@@ -1,0 +1,25 @@
+body{ 
+    background-color: #c89c18;
+}
+
+
+h1{ text-align: center;
+    font-family:'Sacramento';
+}
+
+.header {
+    background-color: #89ad27;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .todo-input {
+      width: 50%;
+    }
+}
+
+.completed{
+    text-decoration:line-through;
+}
