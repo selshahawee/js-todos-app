@@ -28,7 +28,7 @@ function onAdd(event) {
     const newInput = document.createElement('input')
     newInput.value = todoInput.value;
     newInput.setAttribute('readonly', true)
-    newInput.classList.add('todo-item','border','border-2','my-1','border-dark','rounded-pill','p-2','w-50','d-flex','bg-white','completed');
+    newInput.classList.add('todo-item','border','border-2','my-1','border-dark','rounded-pill','p-2','w-50','d-flex','bg-white');
     todoDiv.appendChild(newInput);
       //local storage//
 
