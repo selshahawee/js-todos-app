@@ -10,7 +10,7 @@ const msg = document.querySelector('.msg');
 document.addEventListener('contentLoaded', getTodos());
 myForm.addEventListener('submit', onAdd);
 doList.addEventListener('click', deleteCheck);
-
+doList.addEventListener('click', todoComplete);
  
 function onAdd(event) {
     event.preventDefault();
@@ -28,7 +28,7 @@ function onAdd(event) {
     const newInput = document.createElement('input')
     newInput.value = todoInput.value;
     newInput.setAttribute('readonly', true)
-    newInput.classList.add('todo-item','border','border-2','my-1','border-dark','rounded-pill','p-2','w-50','d-flex','bg-white');
+    newInput.classList.add('todo-item','border','border-2','my-1','border-dark','rounded-pill','p-2','w-50','d-flex','bg-white','completed');
     todoDiv.appendChild(newInput);
       //local storage//
 
@@ -51,7 +51,9 @@ function onAdd(event) {
       editBtn.innerHTML='<em> Edit </em>';
       editBtn.classList.add('todo-edit', 'btn', 'btn-info','m-1');
       todoDiv.appendChild(editBtn);
-    
+
+         //Edit event//
+      
       editBtn.addEventListener('click', () => {
       let status = editBtn.textContent;
       if(status === ' Edit '){
@@ -78,11 +80,16 @@ function onAdd(event) {
    removeTodos(todo);
    todo.remove();
    }
-   
+  }
+    function todoComplete(event) {
+    const item=event.target;
    if(item.classList[0]=== 'todo-complete'){
-   const todo = item.parentElement;
-   todo.classList.toggle('completed','text-decoration-line-through');
-   } 
+     const todo = item.parentElement.firstChild;
+     console.log(todo)
+     todo.classList.toggle('completed');
+     
+    } 
+    
   }
     //local storage function//
 
